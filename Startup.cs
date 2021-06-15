@@ -17,6 +17,7 @@ namespace empty
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -26,9 +27,13 @@ namespace empty
             {
                 app.UseDeveloperExceptionPage();
             }
+            else{
+                app.UseExceptionHandler("/error");
+            }
             app.UseStaticFiles();
             app.UseRouting();
             app.UseEndpoints(x => {
+                x.MapRazorPages();
                 x.MapControllerRoute(
                     name: "Default",
                     pattern: "{controller}/{action}/{id?}",

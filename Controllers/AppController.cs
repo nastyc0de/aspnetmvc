@@ -8,7 +8,12 @@ namespace empty.Controllers
         {
             return View();
         }
-        public IActionResult Welcome()
+        public IActionResult Edit()
+        {
+            return View();
+        }
+        [HttpGet("about")]
+        public IActionResult About()
         {
             return View();
         }
